@@ -9,12 +9,19 @@ on:
 jobs:
   validate-html:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Validate HTML files
-        uses: w3c/actions/html-validator@v1
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
         with:
-          files: |
+          node-version: '18'
+
+      - name: Install html-validator-cli
+        run: npm install -g html-validator-cli
+
+      - name: Validate HTML files
+        run: |
             index.html

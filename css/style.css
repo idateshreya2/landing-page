@@ -1,0 +1,40 @@
+/* Basic Reset */
+body {
+    font-family: sans-serif;
+  }
+  
+  /* Navigation styles */
+  nav {
+    background-color: #333;
+    padding: 10px;
+  }
+  
+  #menu-toggle {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  #nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #nav-menu li {
+    margin: 5px 0;
+  }
+  
+  #nav-menu li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* Hidden menu class for toggle */
+  .hidden {
+    display: none;
+  }
+  

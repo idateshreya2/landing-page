@@ -1,37 +1,20 @@
-# Name of the workflow as it appears on the Actions tab
 name: HTML Validation
 
-# Event that triggers the workflow
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
-# A workflow run is made up of one or more jobs
 jobs:
   validate-html:
-    # Name of the job
-    name: Validate HTML files
-    
-    # Specify the operating system environment for the job
     runs-on: ubuntu-latest
-    
-    # A job contains a sequence of steps
     steps:
-      # Step 1: Check out the repository code
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      # Step 2: Run the HTML validation action
-      - name: Validate HTML with proof-html
-        uses: org/repo-name@v2
+      - name: Validate HTML files
+        uses: crazy-max/w3c-html-validator-action@v1
         with:
-          # The directory to scan for HTML files.
-          # Change this if your HTML files are not in the root directory.
-          directory: './'
-          
-          # Only check HTML files, disable other checks
-          check_html: true
-          check_css: false
-          check_external: false
+          files: |
+            index.html

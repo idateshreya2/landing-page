@@ -1,0 +1,23 @@
+name: HTML Validation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate-html:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate HTML
+        uses: Cyb3r-Jak3/html5validator-action@v0.2.0 # Or another suitable action like proof-html
+        with:
+          root: './' # Specify the root directory containing your HTML files
+          # You can add more options depending on the chosen action,
+          # e.g., 'exclude' patterns, 'check-links', etc.

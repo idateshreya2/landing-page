@@ -18,10 +18,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-
-      - name: Install html-validator-cli
-        run: npm install -g html-validator-cli
-
+          
       - name: Validate HTML files
         run: |
-            index.html
+          find . -name "*.html" | while read file; do
+            echo "Validating $file"
+            npx html-validator --file="$file" --verbose --format=text
+          done
